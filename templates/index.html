@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AI Mental Health Assistant</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+</head>
+<body>
+    <header>
+        <h1>AI Mental Health Assistant</h1>
+        <p>Your confidential space for well-being.</p>
+    </header>
+
+    <main>
+        <section id="emotion-section">
+            <h2>How are you feeling right now?</h2>
+            <p>Enable your camera to let the AI gently recognize your emotion.</p>
+            <div class="camera-feed">
+                <img id="video-stream" src="{{ url_for('video_feed') }}" width="640" height="480" alt="Video Feed">
+            </div>
+        </section>
+
+        <hr>
+
+        <section id="assessment-section">
+            <h2>Quick Anxiety Check-in (GAD-7)</h2>
+            <p>Over the last 2 weeks, how often have you been bothered by the following problems?</p>
+            <form id="gad7-form">
+                </form>
+            <button id="submit-gad7">Calculate Score</button>
+            <div id="gad7-result" class="result-box" style="display: none;"></div>
+        </section>
+
+        <hr>
+
+        <section id="chatbot-section">
+            <h2>Talk to your AI Companion</h2>
+            <div id="chat-window">
+                <div id="chat-box">
+                    <div class="bot-message">Hello! How can I support you today?</div>
+                </div>
+                <div id="chat-input-container">
+                    <input type="text" id="chat-input" placeholder="Type your message here...">
+                    <button id="send-btn">Send</button>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <script src="{{ url_for('static', filename='js/script.js') }}"></script>
+</body>
+</html>
